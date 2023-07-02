@@ -1,3 +1,5 @@
-import './style.css';
+import { createHeader } from "./generalElements";
+import "./style.css";
 
-console.log('hello');
+const body = document.querySelector("body");
+body.appendChild(createHeader());
