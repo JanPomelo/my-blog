@@ -1,11 +1,16 @@
-import Profile  from "./img/profile.jpg";
-
+import Profile from "./img/profile.jpg";
+import Instagram from "./img/instagram.svg";
+import Twitter from "./img/twitter.svg";
+import TikTok from "./img/logo-tiktok.svg";
+import Youtube from "./img/logo-youtube.svg";
 const main: HTMLElement = document.querySelector("main");
 
 export function createWelcome(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.classList.add("py-3");
+  div.classList.add("py-3", "flex", "flex-col", "gap-5");
   div.appendChild(createWelcomeParagraph());
+  div.appendChild(createLatestPosts());
+  div.appendChild(createSocials());
   return div;
 }
 
@@ -30,9 +35,72 @@ My main goal with this blog is to give some value to the people reading the arti
   section.classList.add("whitespace-pre-line", "lg:col-start-1");
   const img = document.createElement("img");
   img.src = Profile;
-  img.classList.add('absolute','invisible', 'lg:visible', 'rounded-full', 'h-64', 'w-64', 'right-20', 'top-2', 'object-cover')
+  img.classList.add(
+    "absolute",
+    "invisible",
+    "lg:relative",
+    "lg:visible",
+    "rounded-full",
+    "h-64",
+    "w-64",
+    "object-cover",
+    "lg:col-start-2",
+    "lg:row-span-2",
+    "lg:mx-auto"
+  );
   div.appendChild(heading);
   div.appendChild(img);
   div.appendChild(section);
+  return div;
+}
+
+function createLatestPosts(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add("gap-3", "flex", "flex-col");
+  const heading: HTMLHeadingElement = document.createElement("h2");
+  heading.innerText = "Latest Posts";
+  heading.classList.add("font-bold", "text-3xl");
+  const description: HTMLElement = document.createElement("section");
+  description.innerText =
+    "Here you will find the latest posts, thoughts and other stuff that may help you. Just click on the the headings below to read the post in full length. I hope you enjoy it!";
+  const posts: HTMLDivElement = document.createElement("div");
+  posts.classList.add("flex", "w-full", "h-52", "bg-gray-100");
+  div.appendChild(heading);
+  div.appendChild(description);
+  div.appendChild(posts);
+  return div;
+}
+
+function createSocials(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add("flex", "flex-col", "gap-3");
+  const heading: HTMLHeadingElement = document.createElement("h2");
+  heading.innerText = "How to connect with me";
+  heading.classList.add("font-bold", "text-3xl");
+  const description: HTMLElement = document.createElement("section");
+  description.innerText =
+    "I would love if you could give me some feedback regarding the things I write down or the website in general. To do this, you can contact me on various social media platforms. Thery are linked below. Just click on the icons below and you will be directed. Thank you very much!";
+  const icons: HTMLDivElement = document.createElement("div");
+  icons.classList.add("flex", "gap-10", "justify-center", "lg:justify-start");
+  const insta: HTMLImageElement = document.createElement("img");
+  const tiktok: HTMLImageElement = document.createElement("img");
+  const twitter: HTMLImageElement = document.createElement("img");
+  const youtube: HTMLImageElement = document.createElement("img");
+  insta.src = Instagram;
+  twitter.src = Twitter;
+  tiktok.src = TikTok;
+  youtube.src = Youtube;
+  insta.classList.add("h-10");
+  twitter.classList.add("h-10");
+  tiktok.classList.add("h-10");
+  youtube.classList.add("h-10");
+
+  div.appendChild(heading);
+  div.appendChild(description);
+  div.appendChild(icons);
+  icons.appendChild(insta);
+  icons.appendChild(twitter);
+  icons.appendChild(tiktok);
+  icons.appendChild(youtube);
   return div;
 }
