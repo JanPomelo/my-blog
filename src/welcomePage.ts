@@ -3,6 +3,9 @@ import Instagram from "./img/instagram.svg";
 import Twitter from "./img/twitter.svg";
 import TikTok from "./img/logo-tiktok.svg";
 import Youtube from "./img/logo-youtube.svg";
+import Threads from "./img/threads-logo.webp";
+import LinkedIn from "./img/linkedin.svg";
+
 const main: HTMLElement = document.querySelector("main");
 
 export function createWelcome(): HTMLDivElement {
@@ -64,10 +67,29 @@ function createLatestPosts(): HTMLDivElement {
   description.innerText =
     "Here you will find the latest posts, thoughts and other stuff that may help you. Just click on the the headings below to read the post in full length. I hope you enjoy it!";
   const posts: HTMLDivElement = document.createElement("div");
-  posts.classList.add("flex", "w-full", "h-52", "bg-gray-100");
+  posts.classList.add("flex", "w-full", "h-52", "bg-gray-100", "gap-8");
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(posts);
+  posts.appendChild(createLatestPost1());
+  return div;
+}
+
+function createLatestPost1(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add(
+    "bg-white",
+    "p-3",
+    "rounded-xl",
+    "border-2",
+    "border-black",
+    "shadow-xl",
+    "shadow-gray-600"
+  );
+  const heading: HTMLHeadingElement = document.createElement("h3");
+  heading.classList.add("text-xl", "font-bold");
+  heading.innerText = "Why I declined my first job offer in Thailand";
+  div.appendChild(heading);
   return div;
 }
 
@@ -81,26 +103,44 @@ function createSocials(): HTMLDivElement {
   description.innerText =
     "I would love if you could give me some feedback regarding the things I write down or the website in general. To do this, you can contact me on various social media platforms. Thery are linked below. Just click on the icons below and you will be directed. Thank you very much!";
   const icons: HTMLDivElement = document.createElement("div");
-  icons.classList.add("flex", "gap-10", "justify-center", "lg:justify-start");
-  const insta: HTMLImageElement = document.createElement("img");
-  const tiktok: HTMLImageElement = document.createElement("img");
-  const twitter: HTMLImageElement = document.createElement("img");
-  const youtube: HTMLImageElement = document.createElement("img");
-  insta.src = Instagram;
-  twitter.src = Twitter;
-  tiktok.src = TikTok;
-  youtube.src = Youtube;
-  insta.classList.add("h-10");
-  twitter.classList.add("h-10");
-  tiktok.classList.add("h-10");
-  youtube.classList.add("h-10");
-
+  icons.classList.add(
+    "flex",
+    "flex-wrap",
+    "gap-10",
+    "justify-center",
+    "lg:justify-start"
+  );
+  createImgAndAnchor(icons, Threads, "https://www.threads.net/@Jan_pomelo");
+  createImgAndAnchor(icons, Instagram, "https://www.instagram.com/Jan_pomelo/");
+  createImgAndAnchor(
+    icons,
+    LinkedIn,
+    "https://www.linkedin.com/in/jan-steikowski-644176224/"
+  );
+  createImgAndAnchor(icons, TikTok, "https://www.tiktok.com/@jan.somoh");
+  createImgAndAnchor(
+    icons,
+    Youtube,
+    "https://www.youtube.com/channel/UChVObrr3UcUc3eMhM8yOnXA"
+  );
+  createImgAndAnchor(icons, Twitter, "https://www.twitter.com/jan_pomelo/");
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(icons);
-  icons.appendChild(insta);
-  icons.appendChild(twitter);
-  icons.appendChild(tiktok);
-  icons.appendChild(youtube);
   return div;
+}
+
+function createImgAndAnchor(
+  div: HTMLDivElement,
+  img: "*svg" | "*webp" | "*.png",
+  link: string
+): void {
+  const anchorElement: HTMLAnchorElement = document.createElement("a");
+  const imgEl: HTMLImageElement = document.createElement("img");
+  anchorElement.appendChild(imgEl);
+  anchorElement.href = link;
+  anchorElement.target = "_blank";
+  imgEl.src = img;
+  imgEl.classList.add("h-10");
+  div.appendChild(anchorElement);
 }
