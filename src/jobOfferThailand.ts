@@ -3,6 +3,7 @@ import {
   createFooter,
   createMain,
   createArticle,
+  createSideDiv,
 } from "./generalElements";
 import "./style.css";
 import { createWelcome } from "./welcomePage";
@@ -13,7 +14,7 @@ body.appendChild(createMain());
 body.appendChild(createFooter());
 
 const main: HTMLElement = document.querySelector("main");
-main.classList.add("grid", "md:grid-cols-4");
+main.classList.add('flex', 'flex-col', 'gap-5', "md:grid", "md:grid-cols-4", 'gap-8');
 
 const heading: string = "Why I declined my first job offer in Thailand";
 const articleText: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.
@@ -29,5 +30,6 @@ const articleText: string = `Today I declined a job offer. It was not just the f
     It may be the wrong decision for my future. Maybe I don't find another job here in Thailand. Maybe I will be forced to go back to Germany. Maybe this is the best offer I will get in the next months and I will regret this decision. But for now, the decision felt right. I think it's the first time anxiety and the lack of confidence didn't dominate a career decision. To be honest, I am proud of myself for that.`;
 const artFooter: string = "07/01/2023 - Bangkok, Thailand";
 main.appendChild(createArticle(heading, articleText, artFooter));
+main.appendChild(createSideDiv());
 
 

@@ -13,10 +13,10 @@ export function createHeader(): HTMLElement {
   // creating text in header
   const title: HTMLElement = document.createElement("p");
   title.innerText = "JanPomelo";
-  title.classList.add("text-3xl" ,'font-bold');
+  title.classList.add("text-3xl", "font-bold");
   const subTitle: HTMLElement = document.createElement("p");
   subTitle.innerText = "thoughts and other stuff.";
-  subTitle.classList.add('font-bold')
+  subTitle.classList.add("font-bold");
   header.appendChild(title);
   header.appendChild(subTitle);
   return header;
@@ -36,20 +36,32 @@ export function createFooter(): HTMLElement {
   );
   const footerText: HTMLElement = document.createElement("p");
   footerText.innerText = "All Rights Reserved";
-  footerText.classList.add('font-bold')
+  footerText.classList.add("font-bold");
   footer.appendChild(footerText);
   return footer;
 }
 
 export function createMain(): HTMLElement {
   const main: HTMLElement = document.createElement("main");
-  main.classList.add('overflow-auto', 'px-5', 'py-5', 'md:mx-12', 'grow', 'xl:mx-28', '2xl:mx-48');
+  main.classList.add(
+    "overflow-auto",
+    "px-5",
+    "py-5",
+    "md:mx-12",
+    "grow",
+    "xl:mx-28",
+    "2xl:mx-48"
+  );
   return main;
 }
 
-export function createArticle(heading: string, text: string, date: string): HTMLDivElement {
-  const div: HTMLDivElement = document.createElement('div');
-  div.classList.add('flex', 'flex-col', 'gap-3', 'col-span-3');
+export function createArticle(
+  heading: string,
+  text: string,
+  date: string
+): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add("flex", "flex-col", "gap-3", "col-span-3");
   div.appendChild(createHeading(heading));
   div.appendChild(createText(text));
   div.appendChild(createArticleFooter(date));
@@ -71,9 +83,60 @@ function createText(text: string): HTMLElement {
 }
 
 function createArticleFooter(text: string): HTMLElement {
-  const p: HTMLElement = document.createElement('p');
-  p.classList.add('text-gray-500', 'text-right');
+  const p: HTMLElement = document.createElement("p");
+  p.classList.add("text-gray-500", "text-right");
   p.innerText = text;
   return p;
 }
 
+export function createSideDiv(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add("flex", "flex-col", "gap-10");
+  div.appendChild(createBackToMainButton());
+  div.appendChild(createOtherPostsDiv());
+  return div;
+}
+
+function createBackToMainButton(): HTMLAnchorElement {
+  const a: HTMLAnchorElement = document.createElement("a");
+  a.classList.add('self-center',"md:self-end");
+  const button: HTMLButtonElement = document.createElement("button");
+  button.classList.add(
+    "border-2",
+    "border-black",
+    "rounded-xl",
+    "bg-white",
+    "px-3"
+  );
+  button.innerText = "Back to Main Page";
+  a.appendChild(button);
+  a.href = "index.html";
+  return a;
+}
+
+function createOtherPostsDiv(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add(
+    "flex",
+    "flex-col",
+    "rounded-2xl",
+    "border-2",
+    "border-black",
+    "px-3",
+    "grow"
+  );
+  div.appendChild(createOtherPostHeading());
+  return div;
+}
+
+function createOtherPostHeading(): HTMLHeadingElement {
+  const heading: HTMLHeadingElement = document.createElement("h2");
+  heading.innerText = "Other interesting Posts";
+  heading.classList.add("text-2xl", "font-bold", "self-center");
+  return heading;
+}
+
+function createPost1(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  return div;
+}
