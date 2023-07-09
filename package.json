@@ -14,7 +14,7 @@
   "license": "MIT",
   "devDependencies": {
     "css-loader": "^6.7.3",
-    "html-webpack-plugin": "^5.5.1",
+    "html-webpack-plugin": "^5.5.3",
     "postcss": "^8.4.22",
     "postcss-loader": "^7.2.4",
     "postcss-preset-env": "^8.3.2",

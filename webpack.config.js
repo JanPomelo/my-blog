@@ -1,11 +1,15 @@
 const path = require("path");
 
+const pages = ["index", "jobOfferThailand"];
 module.exports = {
   mode: "development",
-  entry: "./src/index.ts",
+  entry: {
+    index: './src/index.ts',
+    jobOfferThailand: './src/jobOfferThailand.ts',
+  },
   output: {
     path: path.resolve(__dirname, "dist"),
-    filename: "bundle.js",
+    filename: "[name].bundle.js",
   },
   devServer: {
     static: {
@@ -50,9 +54,5 @@ module.exports = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
-  },
-  output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "dist"),
   },
 };

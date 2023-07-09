@@ -43,6 +43,6 @@ export function createFooter(): HTMLElement {
 
 export function createMain(): HTMLElement {
   const main: HTMLElement = document.createElement("main");
-  main.classList.add("grow", 'mx-5', 'md:mx-12' ,'xl:mx-20');
+  main.classList.add('overflow-auto', 'px-5', 'md:mx-12', 'grow', 'xl:mx-28', '2xl:mx-48');
   return main;
 }

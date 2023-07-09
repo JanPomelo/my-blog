@@ -10,7 +10,7 @@ const main: HTMLElement = document.querySelector("main");
 
 export function createWelcome(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.classList.add("py-3", "flex", "flex-col", "gap-5");
+  div.classList.add("py-3", "flex", "flex-col", 'h-full', "gap-5", 'justify-between');
   div.appendChild(createWelcomeParagraph());
   div.appendChild(createLatestPosts());
   div.appendChild(createSocials());
@@ -31,7 +31,7 @@ function createWelcomeParagraph(): HTMLDivElement {
   heading.innerText = "Welcome, stranger!";
   heading.classList.add("font-bold", "text-3xl");
   const section: HTMLElement = document.createElement("section");
-  section.innerText = `Hello you! I am glad you found your way onto my website.My name is Jan and I am 28 years old.I currently live in Bangkok.I was born and raised in Germany but decided to move abroad in 2022 since I was not happy in Germany anymore.
+  section.innerText = `Hello you! I am glad you found your way onto my website. My name is Jan and I am 28 years old. I currently live in Bangkok. I was born and raised in Germany but decided to move abroad in 2022 since I was not happy in Germany anymore.
 In this blog I will write about my current life, how I landed in Bangkok, my general thougths and some other stuff. 
 Right now, this page is barely filled with content since I am just starting to implement writing as a habit in my life. I hope you don't mind.
 My main goal with this blog is to give some value to the people reading the articles published here.  Feel free to browse through the different pages. Maybe you find something that inspires you.`;
@@ -75,7 +75,9 @@ function createLatestPosts(): HTMLDivElement {
   return div;
 }
 
-function createLatestPost1(): HTMLDivElement {
+function createLatestPost1(): HTMLAnchorElement {
+  const a: HTMLAnchorElement = document.createElement("a");
+  a.href = "jobOfferThailand.html";
   const div: HTMLDivElement = document.createElement("div");
   div.classList.add(
     "bg-white",
@@ -90,12 +92,13 @@ function createLatestPost1(): HTMLDivElement {
   heading.classList.add("text-xl", "font-bold");
   heading.innerText = "Why I declined my first job offer in Thailand";
   div.appendChild(heading);
-  return div;
+  a.appendChild(div);
+  return a;
 }
 
 function createSocials(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.classList.add("flex", "flex-col", "gap-3");
+  div.classList.add("flex", "flex-col", "gap-3",'pb-5');
   const heading: HTMLHeadingElement = document.createElement("h2");
   heading.innerText = "How to connect with me";
   heading.classList.add("font-bold", "text-3xl");
