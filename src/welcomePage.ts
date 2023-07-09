@@ -5,7 +5,8 @@ import TikTok from "./img/logo-tiktok.svg";
 import Youtube from "./img/logo-youtube.svg";
 import Threads from "./img/threads-logo.webp";
 import LinkedIn from "./img/linkedin.svg";
-import { createPreviewPostsForMainPage } from "./generalElements";
+import { createPreviewPostsForMainPage } from "./previewMainPage";
+import { Post } from "./PostType";
 
 const main: HTMLElement = document.querySelector("main");
 
@@ -65,6 +66,30 @@ My main goal with this blog is to give some value to the people reading the arti
   return div;
 }
 
+function DoPostContents(): Post[] {
+  const posts: Post[] = [];
+  const previewHeading1: string =
+    "Why I declined my first job offer in Thailand";
+  const previewText1: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
+  const previewLink1 = "jobOfferThailand.html";
+  const previewHeading2: string = "PlaceHolder1";
+  const previewText2: string = "";
+  const previewLink2 = "";
+  const previewHeading3: string = "PlaceHolder2";
+  const previewText3: string = "";
+  const previewLink3 = "";
+  const previewHeading4: string = "PlaceHolder3";
+  const previewText4: string = "";
+  const previewLink4 = "";
+  posts.push(
+    new Post(previewHeading1, previewText1, previewLink1),
+    new Post(previewHeading2, previewText2, previewLink2),
+    new Post(previewHeading3, previewText3, previewLink3),
+    new Post(previewHeading4, previewText4, previewLink4)
+  );
+  return posts;
+}
+
 function createLatestPosts(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
   div.classList.add("gap-3", "flex", "flex-col");
@@ -81,37 +106,42 @@ function createLatestPosts(): HTMLDivElement {
     "h-52",
     "gap-8",
     "justify-between",
-    "overflow-x-auto",
     "pb-3",
-    "px-1"
+    "px-1",
+    "relative"
   );
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(posts);
-  const previewHeading1: string =
-    "Why I declined my first job offer in Thailand";
-  const previewText1: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
-  const previewLink1 = "jobOfferThailand.html";
-  const previewHeading2: string = "PlaceHolder1";
-  const previewText2: string = "";
-  const previewHeading3: string = "PlaceHolder2";
-  const previewText3: string = "";
-  const previewHeading4: string = "PlaceHolder3";
-  const previewText4: string = "";
-  posts.appendChild(
-    createPreviewPostsForMainPage(previewHeading1, previewText1, previewLink1)
-  );
-  posts.appendChild(
-    createPreviewPostsForMainPage(previewHeading2, previewText2)
-  );
-  posts.appendChild(
-    createPreviewPostsForMainPage(previewHeading3, previewText3)
-  );
-  posts.appendChild(
-    createPreviewPostsForMainPage(previewHeading4, previewText4)
-  );
+  const back: HTMLElement = document.createElement("section");
+  back.innerText = 'back';
+  back.classList.add('xl:absolute', 'xl:invisible');
+  posts.appendChild(back);
+  const allPostContent = DoPostContents();
+  for (let i = 0; i < allPostContent.length; i++) {
+    posts.appendChild(
+      createPreviewPostsForMainPage(
+        allPostContent[i].heading,
+        allPostContent[i].text,
+        allPostContent[i].link
+      )
+    );
+  }
+  const forth: HTMLElement = document.createElement("section");
+  forth.innerText = 'forth';
+  forth.classList.add("xl:absolute", "xl:invisible");
+  posts.appendChild(forth);
+  shufflePosts(posts);
 
   return div;
+}
+
+function shufflePosts(posts: HTMLDivElement) {
+  const post1: HTMLAnchorElement = posts.children[1] as HTMLAnchorElement;
+  const post2: HTMLAnchorElement = posts.children[2] as HTMLAnchorElement;
+  const post3: HTMLAnchorElement = posts.children[3] as HTMLAnchorElement;
+  const post4: HTMLAnchorElement = posts.children[4] as HTMLAnchorElement;
+  post1.classList.toggle("invisible");
 }
 
 function createSocials(): HTMLDivElement {
