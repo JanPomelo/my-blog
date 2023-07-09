@@ -49,6 +49,7 @@ export function createMain(): HTMLElement {
     "overflow-auto",
     "px-5",
     "py-5",
+    'mx-2',
     "md:mx-12",
     "grow",
     "xl:mx-28",
@@ -113,5 +114,35 @@ function createBackToMainButton(): HTMLAnchorElement {
   button.innerText = "Back to Main Page";
   a.appendChild(button);
   a.href = "index.html";
+  return a;
+}
+
+export function createPreviewPostsForMainPage(headingText: string, textText: string, link: string = ''): HTMLAnchorElement {
+  const a: HTMLAnchorElement = document.createElement("a");
+  a.href = link;
+  a.classList.add("w-1/4", "min-w-[13rem]");
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add(
+    "bg-white",
+    "p-3",
+    "rounded-xl",
+    "border-2",
+    "border-black",
+    "shadow-md",
+    "shadow-gray-600",
+    "w-full",
+    "h-full",
+    "p-4"
+  );
+  const heading: HTMLHeadingElement = document.createElement("h3");
+  heading.classList.add("text-xl", "font-bold");
+  heading.innerText = headingText;
+  const text: HTMLElement = document.createElement("p");
+  text.classList.add("article-preview", "h-2/3", "text-sm");
+  text.innerText = textText;
+  div.appendChild(heading);
+  div.appendChild(text);
+  a.appendChild(div);
+
   return a;
 }

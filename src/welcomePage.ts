@@ -5,6 +5,7 @@ import TikTok from "./img/logo-tiktok.svg";
 import Youtube from "./img/logo-youtube.svg";
 import Threads from "./img/threads-logo.webp";
 import LinkedIn from "./img/linkedin.svg";
+import { createPreviewPostsForMainPage } from "./generalElements";
 
 const main: HTMLElement = document.querySelector("main");
 
@@ -74,43 +75,43 @@ function createLatestPosts(): HTMLDivElement {
   description.innerText =
     "Here you will find the latest posts, thoughts and other stuff that may help you. Just click on the the headings below to read the post in full length. I hope you enjoy it!";
   const posts: HTMLDivElement = document.createElement("div");
-  posts.classList.add("flex", "w-full", "h-52", "gap-8");
+  posts.classList.add(
+    "flex",
+    "w-full",
+    "h-52",
+    "gap-8",
+    "justify-between",
+    "overflow-x-auto",
+    "pb-3",
+    "px-1"
+  );
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(posts);
-  posts.appendChild(createLatestPost1());
-  return div;
-}
-
-function createLatestPost1(): HTMLAnchorElement {
-  const a: HTMLAnchorElement = document.createElement("a");
-  a.href = "jobOfferThailand.html";
-  a.classList.add("w-1/4", "min-w-[13rem]");
-  const div: HTMLDivElement = document.createElement("div");
-  div.classList.add(
-    "bg-white",
-    "p-3",
-    "rounded-xl",
-    "border-2",
-    "border-black",
-    "shadow-xl",
-    "shadow-gray-600",
-    "w-full",
-    "h-full", 
-    'p-4'
+  const previewHeading1: string =
+    "Why I declined my first job offer in Thailand";
+  const previewText1: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
+  const previewLink1 = "jobOfferThailand.html";
+  const previewHeading2: string = "PlaceHolder1";
+  const previewText2: string = "";
+  const previewHeading3: string = "PlaceHolder2";
+  const previewText3: string = "";
+  const previewHeading4: string = "PlaceHolder3";
+  const previewText4: string = "";
+  posts.appendChild(
+    createPreviewPostsForMainPage(previewHeading1, previewText1, previewLink1)
   );
-  const heading: HTMLHeadingElement = document.createElement("h3");
-  heading.classList.add("text-xl", "font-bold");
-  heading.innerText = "Why I declined my first job offer in Thailand";
-  const text: HTMLElement = document.createElement('p');
-  text.classList.add('article-preview', 'h-2/3', 'text-sm')
-  text.innerText =
-    `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
-  div.appendChild(heading);
-  div.appendChild(text);
-  a.appendChild(div);
+  posts.appendChild(
+    createPreviewPostsForMainPage(previewHeading2, previewText2)
+  );
+  posts.appendChild(
+    createPreviewPostsForMainPage(previewHeading3, previewText3)
+  );
+  posts.appendChild(
+    createPreviewPostsForMainPage(previewHeading4, previewText4)
+  );
 
-  return a;
+  return div;
 }
 
 function createSocials(): HTMLDivElement {
