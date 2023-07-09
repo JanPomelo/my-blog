@@ -10,7 +10,14 @@ const main: HTMLElement = document.querySelector("main");
 
 export function createWelcome(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.classList.add("py-3", "flex", "flex-col", 'h-full', "gap-5", 'justify-between');
+  div.classList.add(
+    "py-3",
+    "flex",
+    "flex-col",
+    "h-full",
+    "gap-5",
+    "justify-between"
+  );
   div.appendChild(createWelcomeParagraph());
   div.appendChild(createLatestPosts());
   div.appendChild(createSocials());
@@ -67,7 +74,7 @@ function createLatestPosts(): HTMLDivElement {
   description.innerText =
     "Here you will find the latest posts, thoughts and other stuff that may help you. Just click on the the headings below to read the post in full length. I hope you enjoy it!";
   const posts: HTMLDivElement = document.createElement("div");
-  posts.classList.add("flex", "w-full", "h-52", "bg-gray-100", "gap-8");
+  posts.classList.add("flex", "w-full", "h-52", "gap-8");
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(posts);
@@ -78,6 +85,7 @@ function createLatestPosts(): HTMLDivElement {
 function createLatestPost1(): HTMLAnchorElement {
   const a: HTMLAnchorElement = document.createElement("a");
   a.href = "jobOfferThailand.html";
+  a.classList.add("w-1/4", "min-w-[13rem]");
   const div: HTMLDivElement = document.createElement("div");
   div.classList.add(
     "bg-white",
@@ -86,25 +94,34 @@ function createLatestPost1(): HTMLAnchorElement {
     "border-2",
     "border-black",
     "shadow-xl",
-    "shadow-gray-600"
+    "shadow-gray-600",
+    "w-full",
+    "h-full", 
+    'p-4'
   );
   const heading: HTMLHeadingElement = document.createElement("h3");
   heading.classList.add("text-xl", "font-bold");
   heading.innerText = "Why I declined my first job offer in Thailand";
+  const text: HTMLElement = document.createElement('p');
+  text.classList.add('article-preview', 'h-2/3', 'text-sm')
+  text.innerText =
+    `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
   div.appendChild(heading);
+  div.appendChild(text);
   a.appendChild(div);
+
   return a;
 }
 
 function createSocials(): HTMLDivElement {
   const div: HTMLDivElement = document.createElement("div");
-  div.classList.add("flex", "flex-col", "gap-3",'pb-5');
+  div.classList.add("flex", "flex-col", "gap-3");
   const heading: HTMLHeadingElement = document.createElement("h2");
   heading.innerText = "How to connect with me";
   heading.classList.add("font-bold", "text-3xl");
   const description: HTMLElement = document.createElement("section");
   description.innerText =
-    "I would love if you could give me some feedback regarding the things I write down or the website in general. To do this, you can contact me on various social media platforms. Thery are linked below. Just click on the icons below and you will be directed. Thank you very much!";
+    "I would love if you could give me some feedback regarding the things I write down or the website in general. To do this, you can contact me on various social media platforms. They are linked below. Just click on the icons below and you will be directed. Thank you very much!";
   const icons: HTMLDivElement = document.createElement("div");
   icons.classList.add(
     "flex",
