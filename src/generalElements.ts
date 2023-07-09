@@ -1,3 +1,5 @@
+import { createOtherPostsDiv } from "./otherPosts";
+
 export function createHeader(): HTMLElement {
   // creating header element
   const header: HTMLElement = document.createElement("header");
@@ -99,7 +101,7 @@ export function createSideDiv(): HTMLDivElement {
 
 function createBackToMainButton(): HTMLAnchorElement {
   const a: HTMLAnchorElement = document.createElement("a");
-  a.classList.add('self-center',"md:self-end");
+  a.classList.add("self-center", "md:self-end");
   const button: HTMLButtonElement = document.createElement("button");
   button.classList.add(
     "border-2",
@@ -112,31 +114,4 @@ function createBackToMainButton(): HTMLAnchorElement {
   a.appendChild(button);
   a.href = "index.html";
   return a;
-}
-
-function createOtherPostsDiv(): HTMLDivElement {
-  const div: HTMLDivElement = document.createElement("div");
-  div.classList.add(
-    "flex",
-    "flex-col",
-    "rounded-2xl",
-    "border-2",
-    "border-black",
-    "px-3",
-    "grow"
-  );
-  div.appendChild(createOtherPostHeading());
-  return div;
-}
-
-function createOtherPostHeading(): HTMLHeadingElement {
-  const heading: HTMLHeadingElement = document.createElement("h2");
-  heading.innerText = "Other interesting Posts";
-  heading.classList.add("text-2xl", "font-bold", "self-center");
-  return heading;
-}
-
-function createPost1(): HTMLDivElement {
-  const div: HTMLDivElement = document.createElement("div");
-  return div;
 }

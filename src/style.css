@@ -20,6 +20,14 @@ html {
     overflow: hidden;
   }
 
+  .otherPostPreview {
+    display: -webkit-box;
+    height: 7rem;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
 @media (min-width: 1280px) {
   .article-preview {
     -webkit-line-clamp: 6;
