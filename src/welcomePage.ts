@@ -108,14 +108,20 @@ function createLatestPosts(): HTMLDivElement {
     "justify-between",
     "pb-3",
     "px-1",
-    "relative"
+    "relative",
+    "items-center",
+    "xl:items-stretch"
   );
   div.appendChild(heading);
   div.appendChild(description);
   div.appendChild(posts);
   const back: HTMLElement = document.createElement("section");
-  back.innerText = 'back';
-  back.classList.add('xl:absolute', 'xl:invisible');
+  back.innerText = "arrow_left";
+  back.classList.add(
+    "xl:absolute",
+    "xl:invisible",
+    "material-symbols-outlined"
+  );
   posts.appendChild(back);
   const allPostContent = DoPostContents();
   for (let i = 0; i < allPostContent.length; i++) {
@@ -128,20 +134,227 @@ function createLatestPosts(): HTMLDivElement {
     );
   }
   const forth: HTMLElement = document.createElement("section");
-  forth.innerText = 'forth';
-  forth.classList.add("xl:absolute", "xl:invisible");
+  forth.innerText = "arrow_right";
+  forth.classList.add(
+    "xl:absolute",
+    "xl:invisible",
+    "material-symbols-outlined"
+  );
   posts.appendChild(forth);
   shufflePosts(posts);
-
   return div;
 }
 
 function shufflePosts(posts: HTMLDivElement) {
-  const post1: HTMLAnchorElement = posts.children[1] as HTMLAnchorElement;
-  const post2: HTMLAnchorElement = posts.children[2] as HTMLAnchorElement;
-  const post3: HTMLAnchorElement = posts.children[3] as HTMLAnchorElement;
-  const post4: HTMLAnchorElement = posts.children[4] as HTMLAnchorElement;
-  post1.classList.toggle("invisible");
+  posts.children[1].classList.toggle("invisible");
+  const back: HTMLElement = posts.children[0] as HTMLElement;
+  back.addEventListener("click", () => {
+    for (let i = 1; i < 5; i++) {
+      if (!posts.children[i].classList.contains("invisible")) {
+        if (i === 1) {
+          posts.children[4].classList.toggle("invisible");
+          animateBackWards(
+            posts.children[i] as HTMLAnchorElement,
+            posts.children[4] as HTMLAnchorElement
+          );
+          return;
+        } else {
+          animateBackWards(
+            posts.children[i] as HTMLAnchorElement,
+            posts.children[i - 1] as HTMLAnchorElement
+          );
+          posts.children[i - 1].classList.toggle("invisible");
+          return;
+        }
+      }
+    }
+  });
+  const forth: HTMLElement = posts.children[5] as HTMLElement;
+  forth.addEventListener("click", () => {
+    for (let i = 1; i < 5; i++) {
+      if (!posts.children[i].classList.contains("invisible")) {
+        if (i === 4) {
+          posts.children[1].classList.toggle("invisible");
+          animateForWards(
+            posts.children[i] as HTMLAnchorElement,
+            posts.children[1] as HTMLAnchorElement
+          );
+          return;
+        } else {
+          posts.children[i + 1].classList.toggle("invisible");
+          animateForWards(
+            posts.children[i] as HTMLAnchorElement,
+            posts.children[i + 1] as HTMLAnchorElement
+          );
+          return;
+        }
+      }
+    }
+  });
+}
+
+function fontAnimationPreviewSlideCurDiv(
+  element: HTMLElement,
+  aniDur: number
+): void {
+  element.children[0].children[0].animate(
+    [
+      {
+        fontSize: "1.25rem",
+      },
+      {
+        fontSize: "0rem",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  element.children[0].children[1].animate(
+    [
+      {
+        fontSize: "0.875rem",
+      },
+      {
+        fontSize: "0rem",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+}
+
+function fontAnimationPreviewSlideNextDiv(
+  element: HTMLElement,
+  aniDur: number
+): void {
+  element.children[0].children[0].animate(
+    [
+      {
+        fontSize: "0rem",
+      },
+      {
+        fontSize: "1.25rem",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  element.children[0].children[1].animate(
+    [
+      {
+        fontSize: "0rem",
+      },
+      {
+        fontSize: "0.75rem",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+}
+
+function animateForWards(
+  currentDiv: HTMLAnchorElement,
+  nextDiv: HTMLAnchorElement
+): void {
+  const aniDur: number = 300;
+  currentDiv.animate(
+    [
+      {
+        width: "14rem",
+        height: "100%",
+        left: "50%",
+      },
+      {
+        width: "0rem",
+        height: '0%',
+        left: "100%",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  fontAnimationPreviewSlideCurDiv(currentDiv, aniDur);
+  nextDiv.animate(
+    [
+      {
+        width: "0rem",
+        height: "0%",
+        left: "0%",
+      },
+      {
+        width: "14rem",
+        height: "100%",
+        left: "50%",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  fontAnimationPreviewSlideNextDiv(nextDiv, aniDur);
+  setTimeout(() => {
+    currentDiv.classList.toggle("invisible");
+  }, aniDur);
+}
+
+function animateBackWards(
+  currentDiv: HTMLAnchorElement,
+  nextDiv: HTMLAnchorElement
+): void {
+  const aniDur: number = 300;
+  currentDiv.animate(
+    [
+      {
+        width: "14rem",
+        height: "100%",
+        left: "50%",
+      },
+      {
+        width: "0%",
+        height: "0%",
+        left: "0%",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  fontAnimationPreviewSlideCurDiv(currentDiv, aniDur);
+  nextDiv.animate(
+    [
+      {
+        width: "0%",
+        height: "0%",
+        left: "100%",
+      },
+      {
+        width: "14rem",
+        height: "100%",
+        left: "50%",
+      },
+    ],
+    {
+      iterations: 1,
+      duration: aniDur,
+    }
+  );
+  fontAnimationPreviewSlideNextDiv(nextDiv, aniDur);
+  setTimeout(() => {
+    currentDiv.classList.toggle("invisible");
+  }, aniDur);
 }
 
 function createSocials(): HTMLDivElement {

@@ -12,23 +12,26 @@ html {
   font-family: "Raleway", sans-serif;
 }
 
- .article-preview {
-    display: -webkit-box;
-    height: 52%;
-    -webkit-line-clamp: 4;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+.article-preview {
+  display: -webkit-box;
+  height: 52%;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-  .otherPostPreview {
-    display: -webkit-box;
-    height: 5.5rem;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
+.otherPostPreview {
+  display: -webkit-box;
+  height: 5.5rem;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
 
-
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 48;
+  font-size: xx-large;
+}
 
 @media (min-width: 1280px) {
   .article-preview {

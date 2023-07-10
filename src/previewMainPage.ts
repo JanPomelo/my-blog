@@ -7,11 +7,12 @@ export function createPreviewPostsForMainPage(
   a.href = link;
   a.classList.add(
     "xl:w-1/4",
-    "min-w-[13rem]",
+    "min-w-[14rem]",
     "absolute",
     "invisible",
     "xl:visible",
     "xl:static",
+    'h-full',
     "top-1/2",
     "left-1/2",
     "transform", "-translate-x-1/2",
