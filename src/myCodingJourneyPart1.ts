@@ -48,7 +48,6 @@ const articleText2 = `So here I am, writing this stuff on a website fully build 
 const artFooter: string = "07/10/2023 - Bangkok, Thailand";
 
 const articleDiv = createArticle1();
-articleDiv.classList.add('xl:overflow-auto')
 articleDiv.appendChild(createHeading(heading));
 articleDiv.appendChild(createText(articleText1));
 articleDiv.appendChild(odinPictureDiv)

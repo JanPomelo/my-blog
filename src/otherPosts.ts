@@ -48,13 +48,12 @@ export function createOtherPostsDiv(): HTMLDivElement {
     "border-2",
     "border-black",
     "px-3",
-    "grow",
     "pt-3",
     "pb-8"
   );
   div.appendChild(createOtherPostHeading());
   div.appendChild(miniDiv);
-  miniDiv.classList.add("flex", "flex-col", "grow", "justify-between", "gap-4");
+  miniDiv.classList.add("flex", "flex-col", "gap-4");
   let i = 0;
   const currentPosts: number[] = [];
   while (i < 4) {
