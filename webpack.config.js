@@ -4,8 +4,9 @@ const pages = ["index", "jobOfferThailand"];
 module.exports = {
   mode: "development",
   entry: {
-    index: './src/index.ts',
-    jobOfferThailand: './src/jobOfferThailand.ts',
+    index: "./src/index.ts",
+    jobOfferThailand: "./src/jobOfferThailand.ts",
+    myCodingJourneyPart1: "./src/myCodingJourneyPart1.ts",
   },
   output: {
     path: path.resolve(__dirname, "dist"),

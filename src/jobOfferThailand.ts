@@ -6,7 +6,7 @@ import {
   createSideDiv,
 } from "./generalElements";
 import "./style.css";
-import { createWelcome } from "./welcomePage";
+
 
 const body: HTMLBodyElement = document.querySelector("body");
 body.appendChild(createHeader());

@@ -72,13 +72,13 @@ function DoPostContents(): Post[] {
     "Why I declined my first job offer in Thailand";
   const previewText1: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
   const previewLink1 = "jobOfferThailand.html";
-  const previewHeading2: string = "PlaceHolder1";
+  const previewHeading2: string = "My Coding Journey - Part 1";
   const previewText2: string = "";
-  const previewLink2 = "";
-  const previewHeading3: string = "PlaceHolder2";
+  const previewLink2 = "myCodingJourneyPart1.html";
+  const previewHeading3: string = "PlaceHolder1";
   const previewText3: string = "";
   const previewLink3 = "";
-  const previewHeading4: string = "PlaceHolder3";
+  const previewHeading4: string = "PlaceHolder2";
   const previewText4: string = "";
   const previewLink4 = "";
   posts.push(
