@@ -73,7 +73,8 @@ function DoPostContents(): Post[] {
   const previewText1: string = `Today I declined a job offer. It was not just the first job offer i received since I am in Thailand (which would be a huge opportunity for me), but also the first job offer ever I declined in my life. This has many different reasons, but the main reason is that I and my time are more worth way more than the company was willing to offer me.`;
   const previewLink1 = "jobOfferThailand.html";
   const previewHeading2: string = "My Coding Journey - Part 1";
-  const previewText2: string = "";
+  const previewText2: string =
+    "You are probably wondering why this page is looking the way it does right now. First of all: I like minimalistic designs. But that's of course not all. The main reason is that I am currently learing how to code - but let me explain this a little bit more. I am not fairly new in writing code. During my job as a Systems Engineer I build Simulation Programs for ECU-Tests with C++ and MATLAB/Simulink. Furthermore I also used Python for Toolchain automation.";
   const previewLink2 = "myCodingJourneyPart1.html";
   const previewHeading3: string = "PlaceHolder1";
   const previewText3: string = "";

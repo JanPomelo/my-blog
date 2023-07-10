@@ -49,7 +49,7 @@ export function createMain(): HTMLElement {
     "overflow-auto",
     "px-5",
     "py-5",
-    'mx-2',
+    "mx-2",
     "md:mx-12",
     "grow",
     "xl:mx-28",
@@ -71,21 +71,27 @@ export function createArticle(
   return div;
 }
 
-function createHeading(text: string): HTMLHeadingElement {
+export function createArticle1(): HTMLDivElement {
+  const div: HTMLDivElement = document.createElement("div");
+  div.classList.add("flex", "flex-col", "gap-3", "col-span-3", 'pr-5');
+  return div;
+}
+
+export function createHeading(text: string): HTMLHeadingElement {
   const heading: HTMLHeadingElement = document.createElement("h1");
   heading.classList.add("font-bold", "text-3xl", "col-span-4");
   heading.innerText = text;
   return heading;
 }
 
-function createText(text: string): HTMLElement {
+export function createText(text: string): HTMLElement {
   const section: HTMLElement = document.createElement("section");
   section.classList.add("col-span-3", "text-justify");
-  section.innerText = text;
+  section.innerHTML= text;
   return section;
 }
 
-function createArticleFooter(text: string): HTMLElement {
+export function createArticleFooter(text: string): HTMLElement {
   const p: HTMLElement = document.createElement("p");
   p.classList.add("text-gray-500", "text-right");
   p.innerText = text;

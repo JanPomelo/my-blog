@@ -10,7 +10,11 @@ posts.push(
   )
 );
 posts.push(
-  new Post("My Coding Journey - Part 1", "", "myCodingJourneyPart1.html")
+  new Post(
+    "My Coding Journey - Part 1",
+    "You are probably wondering why this page is looking the way it does right now. First of all: I like minimalistic designs. But that's of course not all. The main reason is that I am currently learing how to code - but let me explain this a little bit more. I am not fairly new in writing code. During my job as a Systems Engineer I build Simulation Programs for ECU-Tests with C++ and MATLAB/Simulink. Furthermore I also used Python for Toolchain automation. ",
+    "myCodingJourneyPart1.html"
+  )
 );
 posts.push(
   new Post(

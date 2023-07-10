@@ -14,7 +14,7 @@ html {
 
 .article-preview {
   display: -webkit-box;
-  height: 52%;
+  height: 47%;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;

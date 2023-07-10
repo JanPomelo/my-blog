@@ -22,6 +22,8 @@ export function createPreviewPostsForMainPage(
   const div: HTMLDivElement = document.createElement("div");
   div.classList.add(
     "bg-white",
+    'flex',
+    'flex-col',
     "p-3",
     "rounded-xl",
     "border-2",
@@ -30,7 +32,8 @@ export function createPreviewPostsForMainPage(
     "shadow-gray-600",
     "w-full",
     "h-full",
-    "p-4"
+    "p-4",
+    'justify-between'
   );
   const heading: HTMLHeadingElement = document.createElement("h3");
   heading.classList.add("text-xl", "font-bold");
